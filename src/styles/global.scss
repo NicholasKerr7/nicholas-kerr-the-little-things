@@ -1,7 +1,9 @@
 @use "./partials/mixins" as *;
 @use "./partials/variables" as *;
 @use "./partials/resets" as *;
-@use "./partials/variables" as *;
 @use "./partials/fonts" as *;
 
 
+body {
+    font-family: "poppins";
+}
