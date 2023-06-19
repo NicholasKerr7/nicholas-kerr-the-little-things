@@ -2,8 +2,8 @@ import "./NavBar.scss";
 
 export default function NavBar () {
     return (
-  <head>
+  <section className="navbar">
       
-  </head>
+  </section>
     )
   };
