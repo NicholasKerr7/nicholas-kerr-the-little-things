@@ -1,0 +1,47 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.dashboard {
+    padding: 1rem;
+
+    // &__title-container {}
+
+    // &__title {}
+
+    &__cards {
+        @include flexbox(row, space-between, null);
+        height: 26rem;
+
+    }
+
+    &__left-card {
+        background: url("../../assets/capstone-icons/Rectangle-tall-file.svg") no-repeat;
+        width: 45%;
+    }
+
+    // &__category {}
+
+    // &__text {}
+
+    &__right-cards {
+        background: url("../../assets/capstone-icons/stickyPad.svg") no-repeat;
+        background: url("../../assets/capstone-icons/stickyPad.svg") no-repeat;
+        @include flexbox(column, space-between, null);
+        width: 45%;
+    }
+
+    // &__task-wrapper {}
+
+    &__subtitle {
+        @include flexbox(row, space-between, center);
+
+    }
+
+    &__due-date {
+        @include flexbox(row, space-between, center);
+
+    }
+
+    // &__activities-wrapper {}
+
+}
