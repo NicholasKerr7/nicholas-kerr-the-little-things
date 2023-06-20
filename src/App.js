@@ -1,6 +1,7 @@
 import "./styles/global.scss";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
 
 export default function App () {
   return (
@@ -12,6 +13,7 @@ export default function App () {
           <Route path="/" element=""/>
           <Route path="/" element=""/> */}
         </Routes>
+        <NavBar/>
       </BrowserRouter>
     </div>
   );
