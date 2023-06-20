@@ -2,6 +2,7 @@ import "./styles/global.scss";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
+// import MyTaskPage from "./pages/MyTaskPage/MyTaskPage";
 
 export default function App () {
   return (
@@ -9,8 +10,8 @@ export default function App () {
       <BrowserRouter>
         <Routes>
         <Route path="/" element={<LandingPage/>}/>
+          {/* <Route path="/" element={<MyTaskPage/>}/> */}
           {/* <Route path="/" element=""/>
-          <Route path="/" element=""/>
           <Route path="/" element=""/> */}
         </Routes>
         <NavBar/>
