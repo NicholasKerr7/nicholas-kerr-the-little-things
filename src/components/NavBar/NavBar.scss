@@ -1,0 +1,31 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.navbar {
+    padding: 1rem 5rem;
+    background: url("../../assets/capstone-icons/navbar.svg") no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 10rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+    @include flexbox(row, space-between, center);
+
+    // &__home {}
+
+    // &__todo {}
+
+    &__create {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    // &__profile {}
+
+    // &__stats {}
+}
