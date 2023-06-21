@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .todo {
-    padding: 1rem;
+    padding: 1rem 1rem 4rem;
 
     // &__title-container {}
 
@@ -14,6 +14,7 @@
         @include flexbox(row, space-between, center);
         width: 100%;
         height: 11rem;
+        margin-bottom: 2rem;
 
 
     }

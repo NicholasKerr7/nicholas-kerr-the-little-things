@@ -1,14 +1,48 @@
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NewTasksPage.scss";
 
 export default function NewTasksPage() {
+  const [handlePost, setHandlePost] = useState([]);
+const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    setHandlePost({...handlePost, [event.target.title]: event.target.value,})
+  }
+
+  const handleAdd = (event) => {
+    event.preventDefault();
+
+   
+
+    setTimeout(() => {
+      navigate("todos/");
+    }, 1000);
+
+    const postNewTask = {
+
+    }
+  
+
+    axios
+      .post(
+        `${process.env.REACT_APP_API_BASE_URL}/todos/1/new-task`
+      
+      )
+      .then((response) => {
+        console.log(response.data);
+      });
+  };
+
   return (
     <section classname="new-task">
       <div classname="new-task__">
         <h1 classname="new-task__">Create New Task</h1>
       </div>
-      <form classname="new-task__">
+      <form classname="new-task__" onSubmit={handleAdd}>
         <div classname="new-task__">
-          <label classname="new-task__" htmlFor="">Title</label>
+          <label classname="new-task__" htmlFor="">Task</label>
           <input classname="new-task__" type="text" placeholder="Going shopping..." />
         </div>
         <div classname="new-task__">

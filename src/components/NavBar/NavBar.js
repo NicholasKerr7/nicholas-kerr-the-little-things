@@ -9,19 +9,19 @@ import StatsIcon from "../../assets/capstone-icons/stats-icon.svg";
 export default function NavBar () {
     return (
   <section className="navbar">
-      <Link >
+      <Link to="/" >
         <img className="navbar__home" src={HomeIcon} alt="" />
       </Link>
-      <Link >
+      <Link to="" >
         <img className="navbar__todo" src={TodoIcon} alt="" />
       </Link>
-      <Link >
+      <Link to="todos/:user_id/new-task" >
         <img className="navbar__create" src={CreateIcon} alt="" />
       </Link>
-      <Link >
+      <Link to="" >
         <img className="navbar__stats" src={StatsIcon} alt="" />
       </Link>
-      <Link >
+      <Link to="" >
         <img className="navbar__profile" src={ProfileIcon} alt="" />
       </Link>
   </section>

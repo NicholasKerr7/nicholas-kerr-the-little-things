@@ -10,12 +10,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(null);
   const [taskCount, setTaskCount] = useState(undefined);
-  // const [dueDate, setDueDate] = useState(null);
-  const [isComplete, setIsComplete] = useState(null)
+  const [isComplete, setIsComplete] = useState(false);
 
-  const getAllTAsks = async () => {
+  const getAllTasks = async () => {
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_API_BASE_URL}/todos/1`
@@ -26,48 +25,46 @@ export default function App() {
       console.log(error);
     }
   };
+
+  const getIsComplete = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_BASE_URL}/todos/1`
+      );
+      const filteredArray = response.data.filter((todo) => {
+        return todo.complete == 1;
+      });
+      setIsComplete(filteredArray.length);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    getAllTAsks();
+    getAllTasks();
+    getIsComplete();
   }, []);
 
-  // const getDueDate = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `${process.env.REACT_APP_API_BASE_URL}/todos/1/due_date`
-  //       );
-  //       console.log(response);
-  //     setDueDate(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   getDueDate();
-  // }, []);
+  if (!tasks) {
+    return <div>loading...</div>;
+  }
 
-  // const getIsComplete = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `${process.env.REACT_APP_API_BASE_URL}/todos/1/complete`
-  //       );
-  //       console.log(response);
-  //       setIsComplete(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   getIsComplete();
-  // }, []);
+  if (!isComplete) {
+    return <div>loading...</div>;
+  }
 
   return (
     <div className="main">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<RegistrationPage />} />
-          <Route path="todos/" element={<LandingPage />} />
+          <Route
+            path="todos/"
+            element={<LandingPage tasks={tasks} taskCount={taskCount} isComplete={isComplete} />}
+          />
           <Route path="todos/:user_id/tasks" element={<MyTaskPage />} />
           <Route path="todos/:user_id/new-task" element={<NewTasksPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <NavBar />
       </BrowserRouter>

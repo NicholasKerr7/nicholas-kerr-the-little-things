@@ -2,8 +2,9 @@ import "./DashBoard.scss";
 import textBullet from "../../assets/capstone-icons/text-bullet.svg";
 import checklistIcon from "../../assets/capstone-icons/checklist.svg";
 import checklistIcon2 from "../../assets/capstone-icons/checklist-gold.svg";
+import { Link } from "react-router-dom";
 
-export default function DashBoard() {
+export default function DashBoard({ tasks, taskCount, isComplete }) {
   return (
     <section className="dashboard">
       <div className="dashboard__title-container">
@@ -17,20 +18,27 @@ export default function DashBoard() {
             alt="bulletin-icon"
           />
           <p className="dashboard__left-category">WISHLIST</p>
-          <p className="dashboard__left-text">Trip to Dubai</p>
-          <p className="dashboard__left-text">New Nike Sneakers</p>
-          <p className="dashboard__left-text">New MacBook Pro</p>
-
+          {tasks.slice(0, 4).map((task) => {
+            return (
+              <>
+                <p className="dashboard__left-text">{task.task}</p>
+              </>
+            );
+          })}
         </div>
         <div className="dashboard__right-cards">
-          <div className="dashboard__tasks-wrapper">
+          <Link className="dashboard__tasks-wrapper" to="todos/:user_id/tasks">
             <img className="dashboard__check-icon" src={checklistIcon} alt="" />
-            <p className="dashboard__right-category">7</p>
+            <p className="dashboard__right-category">{taskCount}</p>
             <p className="dashboard__item-counter">TASKS</p>
-          </div>
+          </Link>
           <div className="dashboard__complete-wrapper">
-            <img className="dashboard__check-icon" src={checklistIcon2} alt="" />
-            <p className="dashboard__right-category">3</p>
+            <img
+              className="dashboard__check-icon"
+              src={checklistIcon2}
+              alt=""
+            />
+            <p className="dashboard__right-category">{isComplete}</p>
             <p className="dashboard__item-counter">COMPLETE</p>
           </div>
         </div>
