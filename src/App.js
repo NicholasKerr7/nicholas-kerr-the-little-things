@@ -1,6 +1,8 @@
 import "./styles/global.scss";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import NavBar from "./components/NavBar/NavBar";
+import NewTasksPage from "./pages/NewTasksPage/NewTasksPage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import MyTaskPage from "./pages/MyTaskPage/MyTaskPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,7 +13,7 @@ export default function App() {
   const [tasks, setTasks] = useState([]);
   const [taskCount, setTaskCount] = useState(undefined);
   // const [dueDate, setDueDate] = useState(null);
-  // const [isComplete, setIsComplete] = useState(null)
+  const [isComplete, setIsComplete] = useState(null)
 
   const getAllTAsks = async () => {
     try {
@@ -62,10 +64,10 @@ export default function App() {
     <div className="main">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/todos/user_id" element={<MyTaskPage />} />
-          {/* <Route path="/" element=""/> */}
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/" element={<RegistrationPage />} />
+          <Route path="todos/" element={<LandingPage />} />
+          <Route path="todos/:user_id/tasks" element={<MyTaskPage />} />
+          <Route path="todos/:user_id/new-task" element={<NewTasksPage />} />
         </Routes>
         <NavBar />
       </BrowserRouter>
