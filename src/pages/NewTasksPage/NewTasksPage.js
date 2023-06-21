@@ -5,30 +5,51 @@ import "./NewTasksPage.scss";
 
 export default function NewTasksPage() {
   const [handlePost, setHandlePost] = useState([]);
-const navigate = useNavigate();
+  const [formErrors, setFormErrors] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
-    setHandlePost({...handlePost, [event.target.title]: event.target.value,})
-  }
+    setHandlePost({ ...handlePost, [event.target.task]: event.target.value });
+  };
 
   const handleAdd = (event) => {
     event.preventDefault();
 
-   
+    setFormErrors({});
+
+    let formIsValid = true;
+
+    const errors = {};
+
+    if (!handlePost.task) {
+      formIsValid = false;
+      errors["error_task"] = true;
+    }
+
+    if (!handlePost.category) {
+      formIsValid = false;
+      errors["error_task"] = true;
+    }
+
+    if (!formIsValid) {
+      return setFormErrors(errors);
+    }
 
     setTimeout(() => {
       navigate("todos/");
     }, 1000);
 
     const postNewTask = {
-
-    }
-  
+      task: handlePost.task,
+      category: handlePost.category,
+      created_at: handlePost.created_at,
+      due_at: handlePost.due_at,
+    };
 
     axios
       .post(
-        `${process.env.REACT_APP_API_BASE_URL}/todos/1/new-task`
-      
+        `${process.env.REACT_APP_API_BASE_URL}/todos/1/new-task`,
+        postNewTask
       )
       .then((response) => {
         console.log(response.data);
@@ -36,18 +57,32 @@ const navigate = useNavigate();
   };
 
   return (
-    <section classname="new-task">
-      <div classname="new-task__">
-        <h1 classname="new-task__">Create New Task</h1>
+    <section className="new-task">
+      <div className="new-task__header-container">
+        <h1 className="new-task__header-title">Create New Task</h1>
       </div>
-      <form classname="new-task__" onSubmit={handleAdd}>
-        <div classname="new-task__">
-          <label classname="new-task__" htmlFor="">Task</label>
-          <input classname="new-task__" type="text" placeholder="Going shopping..." />
+      <form className="new-task__form" onSubmit={handleAdd}>
+        <div className="new-task__title-container">
+          <label className="new-task__title" htmlFor="newTask">
+            Task
+          </label>
+          <input
+            type="text"
+            placeholder="Going shopping..."
+            onChange={(event) => handleChange(event)}
+            className={`new-task__title-input ${formErrors.error_task ? "new-task__title-input--error" : ""}`}
+          />
+          {formErrors.error_task && (
+            <p className="new-task__error">This field is required</p>
+          )}
         </div>
-        <div classname="new-task__">
-          <label classname="new-task__" for="start">Start date:</label>
-          <input classname="new-task__"
+        <div className="new-task__datetime-container">
+        <div className="new-task__start-date-container">
+          <label className="new-task__start-date-title" htmlFor="start">
+            Start date:
+          </label>
+          <input
+            className="new-task__start-date"
             type="date"
             id="start"
             name="trip-start"
@@ -57,9 +92,12 @@ const navigate = useNavigate();
             required
           />
         </div>
-        <div classname="new-task__">
-          <label classname="new-task__" for="appt">Time:</label>
-          <input classname="new-task__"
+        <div className="new-task__time-container">
+          <label className="new-task__time-title" htmlFor="appt">
+            Time:
+          </label>
+          <input
+            className="new-task__timestamp"
             type="time"
             id="appt"
             name="appt"
@@ -68,9 +106,13 @@ const navigate = useNavigate();
             required
           />
         </div>
-        <div classname="new-task__">
-          <label classname="new-task__" for="end">End date:</label>
-          <input classname="new-task__"
+        </div>
+        <div className="new-task__date-container">
+          <label className="new-task__date-title" htmlFor="end">
+            End date:
+          </label>
+          <input
+            className="new-task__due-date"
             type="date"
             id="end"
             name="trip-end"
@@ -80,11 +122,18 @@ const navigate = useNavigate();
             required
           />
         </div>
-        <div classname="new-task__">
-            <p classname="new-task__">Category</p>
-            <div classname="new-task__">Create Category</div>
+        <div className="new-task__category-container">
+          <label className="new-task__category-title" htmlFor="category">
+            Category
+          </label>
+          <input
+            className="new-task__category-input"
+            type="text"
+            placeholder="Create a Category"
+            required
+          />
         </div>
-      <button classname="new-task__">Create Task</button>
+        <button className="new-task__create-btn">Create Task</button>
       </form>
     </section>
   );

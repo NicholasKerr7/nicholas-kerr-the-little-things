@@ -28,7 +28,7 @@ export default function DashBoard({ tasks, taskCount, isComplete }) {
         </div>
         <div className="dashboard__right-cards">
           <Link className="dashboard__tasks-wrapper" to="todos/:user_id/tasks">
-            <img className="dashboard__check-icon" src={checklistIcon} alt="" />
+            <img className="dashboard__check-icon" src={checklistIcon} alt="check-icon" />
             <p className="dashboard__right-category">{taskCount}</p>
             <p className="dashboard__item-counter">TASKS</p>
           </Link>

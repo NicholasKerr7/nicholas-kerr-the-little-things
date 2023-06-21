@@ -1,0 +1,143 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.new-task {
+    
+    &__header-container {
+        height: 10rem;
+        background-color: $primary_color2;
+    }
+    
+    &__header-title {
+        padding: 2rem;
+    }
+    
+    &__form {
+        padding: 2rem;
+
+    }
+    
+    &__title-container {
+        @include flexbox(column, space-between, null);
+        margin-bottom: 1rem;
+        
+    }
+    
+    &__title {}
+    
+    &__title-input {
+        height: 3.6rem;
+        padding: 0 1.6rem;
+        border-radius: 2rem;
+        border: 1px solid $primary_color3;
+        background-color: $primary_color2;
+        width: 100%;
+
+        &:focus {
+            border: 1px solid $divider_color;
+        }
+    }
+    
+    &__error {}
+    
+    &__datetime-container {
+        @include flexbox(row, space-between, null);
+    }
+    
+    &__start-date-container {
+        @include flexbox(column, space-between, null);
+        margin-bottom: 1rem;
+        width: 40%;
+    }
+    
+    &__start-date-title {}
+    
+    &__start-date {
+        height: 3.6rem;
+        padding: 0 1.6rem;
+        border-radius: 2rem;
+        border: 1px solid $primary_color3;
+        background-color: $primary_color2;
+        
+        
+        &:focus {
+            border: 1px solid $divider_color;
+        }
+    }
+    
+    &__time-container {
+        @include flexbox(column, space-between, null);
+        margin-bottom: 1rem;
+        width: 40%;
+        
+    }
+    
+    &__timestamp {
+        height: 3.6rem;
+        padding: 0 1.6rem;
+        border-radius: 2rem;
+        border: 1px solid $primary_color3;
+        background-color: $primary_color2;
+        
+        
+        &:focus {
+            border: 1px solid $divider_color;
+        }
+    }
+    
+    &__date-container {
+        @include flexbox(column, space-between, null);
+        margin-bottom: 1rem;
+        
+    }
+    
+    &__date-title {}
+    
+    &__due-date {
+        height: 3.6rem;
+        padding: 0 1.6rem;
+        border-radius: 2rem;
+        border: 1px solid $primary_color3;
+        background-color: $primary_color2;
+        width: 40%;
+        
+        &:focus {
+            border: 1px solid $divider_color;
+        }
+    }
+    
+    &__category-container {
+        @include flexbox(column, space-between, null);
+        margin-bottom: 1rem;
+        
+    }
+    
+    &__category-title {}
+    
+    &__category-input {
+        height: 3.6rem;
+        padding: 0 1.6rem;
+        border-radius: 2rem;
+        border: 1px solid $primary_color3;
+        background-color: $primary_color2;
+        width: 100%;
+        
+        &:focus {
+            border: 1px solid $divider_color;
+        }
+    }
+    
+    &__create-btn {
+        height: 3.6rem;
+        padding: 0 1.6rem;
+        border-radius: 2rem;
+        border: 1px solid $primary_color3;
+        background-color: $primary_color1;
+        width: 15rem;
+        margin-bottom: 8rem;
+    }
+}
+#appt {
+    color: $primary_color3;
+}
