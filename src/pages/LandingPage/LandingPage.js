@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import Todo from "../../components/Todo/Todo";
 import DashBoard from "../../components/DashBoard/DashBoard";
 
-export default function LandingPage({ tasks, taskCount, isComplete }) {
+export default function LandingPage({ tasks, taskCount, isComplete, getAllTasks }) {
   return (
     <>
       <div className="landing-page">
@@ -13,6 +13,7 @@ export default function LandingPage({ tasks, taskCount, isComplete }) {
           tasks={tasks}
           taskCount={taskCount}
           isComplete={isComplete}
+          getAllTasks={getAllTasks}
         />
         <Todo tasks={tasks} />
       </div>

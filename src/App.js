@@ -32,7 +32,7 @@ export default function App() {
         `${process.env.REACT_APP_API_BASE_URL}/todos/1`
       );
       const filteredArray = response.data.filter((todo) => {
-        return todo.complete == 1;
+        return todo.complete === "1";
       });
       setIsComplete(filteredArray.length);
     } catch (error) {
@@ -59,11 +59,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<RegistrationPage />} />
           <Route
-            path="todos/"
-            element={<LandingPage tasks={tasks} taskCount={taskCount} isComplete={isComplete} />}
+            path="/todos"
+            element={<LandingPage tasks={tasks} taskCount={taskCount} isComplete={isComplete} getAllTasks={getAllTasks}/>}
           />
-          <Route path="todos/:user_id/tasks" element={<MyTaskPage />} />
-          <Route path="todos/:user_id/new-task" element={<NewTasksPage />} />
+          <Route path="todos/1/tasks" element={<MyTaskPage tasks={tasks}/>} />
+          <Route path="1/new-task" element={<NewTasksPage getAllTasks={getAllTasks}/>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <NavBar />

@@ -3,40 +3,41 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NewTasksPage.scss";
 
-export default function NewTasksPage() {
-  const [handlePost, setHandlePost] = useState([]);
-  const [formErrors, setFormErrors] = useState({});
+export default function NewTasksPage({ getAllTasks }) {
+  const [handlePost, setHandlePost] = useState({});
+  // const [formErrors, setFormErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (event) => {
-    setHandlePost({ ...handlePost, [event.target.task]: event.target.value });
+    setHandlePost({ ...handlePost, [event.target.name]: event.target.value });
+    console.log(handlePost);
   };
 
   const handleAdd = (event) => {
     event.preventDefault();
 
-    setFormErrors({});
+    // setFormErrors({});
 
-    let formIsValid = true;
+    // let formIsValid = true;
 
-    const errors = {};
+    // const errors = {};
 
-    if (!handlePost.task) {
-      formIsValid = false;
-      errors["error_task"] = true;
-    }
+    // if (!handlePost.task) {
+    //   formIsValid = false;
+    //   errors["error_task"] = true;
+    // }
 
-    if (!handlePost.category) {
-      formIsValid = false;
-      errors["error_task"] = true;
-    }
+    // if (!handlePost.category) {
+    //   formIsValid = false;
+    //   errors["error_task"] = true;
+    // }
 
-    if (!formIsValid) {
-      return setFormErrors(errors);
-    }
+    // if (!formIsValid) {
+    //   return setFormErrors(errors);
+    // }
 
     setTimeout(() => {
-      navigate("todos/");
+      navigate("/todos/1/tasks");
     }, 1000);
 
     const postNewTask = {
@@ -47,14 +48,15 @@ export default function NewTasksPage() {
     };
 
     axios
-      .post(
-        `${process.env.REACT_APP_API_BASE_URL}/todos/1/new-task`,
-        postNewTask
-      )
+      .post(`${process.env.REACT_APP_API_BASE_URL}/todos/1`, postNewTask)
       .then((response) => {
-        console.log(response.data);
+        getAllTasks();
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
+
 
   return (
     <section className="new-task">
@@ -67,45 +69,49 @@ export default function NewTasksPage() {
             Task
           </label>
           <input
+          className="new-task__title-input"
+            name="task"
             type="text"
             placeholder="Going shopping..."
             onChange={(event) => handleChange(event)}
-            className={`new-task__title-input ${formErrors.error_task ? "new-task__title-input--error" : ""}`}
+            // className={`new-task__title-input ${formErrors.error_task ? "new-task__title-input--error" : ""}`}
           />
-          {formErrors.error_task && (
+          {/* {formErrors.error_task && (
             <p className="new-task__error">This field is required</p>
-          )}
+          )} */}
         </div>
         <div className="new-task__datetime-container">
-        <div className="new-task__start-date-container">
-          <label className="new-task__start-date-title" htmlFor="start">
-            Start date:
-          </label>
-          <input
-            className="new-task__start-date"
-            type="date"
-            id="start"
-            name="trip-start"
-            value="2023-06-28"
-            min="2023-01-01"
-            max="2090-12-31"
-            required
-          />
-        </div>
-        <div className="new-task__time-container">
-          <label className="new-task__time-title" htmlFor="appt">
-            Time:
-          </label>
-          <input
-            className="new-task__timestamp"
-            type="time"
-            id="appt"
-            name="appt"
-            min="00:00"
-            max="24:00"
-            required
-          />
-        </div>
+          <div className="new-task__start-date-container">
+            <label className="new-task__start-date-title" htmlFor="start">
+              Start date:
+            </label>
+            <input
+              className="new-task__start-date"
+              type="date"
+              id="start"
+              name="created_at"
+              defaultValue="2023-06-28"
+              min="2023-01-01"
+              max="2090-12-31"
+            onChange={(event) => handleChange(event)}
+              required
+            />
+          </div>
+          {/* <div className="new-task__time-container">
+            <label className="new-task__time-title" htmlFor="appt">
+              Time:
+            </label>
+            <input
+              className="new-task__timestamp"
+              type="time"
+              id="appt"
+              name="created_at"
+              min="00:00"
+              max="24:00"
+            onChange={(event) => handleChange(event)}
+              required
+            />
+          </div> */}
         </div>
         <div className="new-task__date-container">
           <label className="new-task__date-title" htmlFor="end">
@@ -115,10 +121,11 @@ export default function NewTasksPage() {
             className="new-task__due-date"
             type="date"
             id="end"
-            name="trip-end"
-            value="2023-06-28"
+            name="due_at"
+            defaultValue="2023-06-28"
             min="2023-01-01"
             max="2090-12-31"
+            onChange={(event) => handleChange(event)}
             required
           />
         </div>
@@ -128,8 +135,10 @@ export default function NewTasksPage() {
           </label>
           <input
             className="new-task__category-input"
+            name="category"
             type="text"
             placeholder="Create a Category"
+            onChange={(event) => handleChange(event)}
             required
           />
         </div>

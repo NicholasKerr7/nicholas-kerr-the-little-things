@@ -3,11 +3,11 @@ import Calender from "../../components/Calender/Calender.js";
 import Tasks from "../../components/Tasks/Tasks";
 
 
-export default function MyTaskPage() {
+export default function MyTaskPage(tasks) {
     return (
       <div className="task-page">
         < Calender/>
-        < Tasks/>    
+        < Tasks tasks={tasks}/>    
       </div>
     );
   }

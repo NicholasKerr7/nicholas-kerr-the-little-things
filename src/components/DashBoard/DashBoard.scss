@@ -32,7 +32,6 @@
     &__left-text {
         @include flexbox(column, space-between, center);
         font-size: 1.5rem
-
     }
 
     &__right-cards {
@@ -57,6 +56,17 @@
         left: 15rem;
         transform: translate(-50%, -50%);
         font-size: 4rem;
+        color: $checkbox-color1;
+
+        &--complete {
+            @include flexbox(row, space-between, center);
+            position: absolute;
+            top: 6rem;
+            left: 15rem;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: $checkbox-color2;
+        }
     }
 
     &__item-counter {
