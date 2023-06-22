@@ -1,59 +1,60 @@
 import { Link } from "react-router-dom";
 import "./RegistrationPage.scss";
+import backIcon from "../../assets/capstone-icons/arrow-back-circle.svg";
 
 export default function RegistrationPage() {
   return (
     <section className="registration">
-      <Link className="registration__" to="">
-        {/* <img className="" src="" alt="" /> */}
+      <div className="registration__header-container">
+      <Link className="registration__back-btn-container" to="todos/">
+        <img className="registration__back-btn" src={backIcon} alt="back icon" />
       </Link>
-      <div className="registration__">
-        <h1 className="">Registration</h1>
+        <h1 className="registration__title">Registration</h1>
       </div>
-      <form className="registration__">
-        <div className="">
-          <label className="" htmlFor="form-label">
-            name
+      <form className="registration__form">
+        <div className="registration__name-container">
+          <label className="registration__name-title" htmlFor="form-label">
+            Name
           </label>
           <input
-            className=""
+            className="registration__name-input"
             name="name"
             type="text"
             placeholder="Enter Your name"
           />
         </div>
-        <div className="">
-          <label className="" htmlFor="form-label">
+        <div className="registration__username-container">
+          <label className="registration__username-title" htmlFor="form-label">
             User Name
           </label>
           <input
-            className=""
+            className="registration__username-input"
             name="user-name"
             type="text"
             placeholder="Create A Username"
           />
         </div>{" "}
-        <div className="">
-          <label className="" htmlFor="form-label">
+        <div className="registration__username-container">
+          <label className="registration__username-title" htmlFor="form-label">
             Password
           </label>
-          <input className="" name="password" type="text" placeholder="Enter Your Password" />
+          <input className="registration__username-input" name="password" type="text" placeholder="Enter Your Password" />
         </div>
-        <div className="">
-          <label className="" htmlFor="form-label">
+        <div className="registration__Conf-Pwd-container">
+          <label className="registration__Conf-Pwd-title" htmlFor="form-label">
             Confirm Password
           </label>
-          <input className="" name="confirm-password" type="text" placeholder="Re-enter Your Password" />
+          <input className="registration__Conf-Pwd-input" name="confirm-password" type="text" placeholder="Re-enter Your Password" />
         </div>
-        <div className="">
-          <input className="" type="checkbox" />
-          <p className="">I agree with the terms and conditions and also the protection of my personal data on this application.</p>
+        <div className="registration__paragraph-container">
+          <input className="registration__checkbox" type="checkbox" />
+          <p className="registration__paragraph">I agree with the terms and conditions and also the protection of my personal data on this application.</p>
         </div>
-        <Link to="">
-          <p className="">Register</p>
+        <Link className="registration__reg-btn-link" to="">
+          <p className="registration__reg-btn">Register</p>
         </Link>
-        <Link to="">
-          <p className="">Login</p>
+        <Link className="registration__log-btn-link" to="todos/:user_id">
+          <p className="registration__log-btn">Login</p>
         </Link>
       </form>
     </section>
