@@ -2,6 +2,7 @@ import "./styles/global.scss";
 import Header from "./components/Header/Header";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import NavBar from "./components/NavBar/NavBar";
+import SharedListPage from "./pages/SharedListPage/SharedListPage";
 import NewTasksPage from "./pages/NewTasksPage/NewTasksPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import MyTaskPage from "./pages/MyTaskPage/MyTaskPage";
@@ -33,7 +34,7 @@ export default function App() {
         `${process.env.REACT_APP_API_BASE_URL}/todos/1`
       );
       const filteredArray = response.data.filter((todo) => {
-        return todo.complete === "1";
+        return todo.complete === 1;
       });
       setIsComplete(filteredArray.length);
     } catch (error) {
@@ -68,11 +69,21 @@ export default function App() {
               />
             }
           />
-          <Route path="todos/1/tasks" element={<MyTaskPage tasks={tasks} />} />
+          <Route
+            path="todos/1/tasks"
+            element={
+              <MyTaskPage
+                tasks={tasks}
+                isComplete={isComplete}
+                getIsComplete={getIsComplete}
+              />
+            }
+          />
           <Route
             path="1/new-task"
             element={<NewTasksPage getAllTasks={getAllTasks} />}
           />
+          <Route path="1/shared-list" element={<SharedListPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <NavBar />

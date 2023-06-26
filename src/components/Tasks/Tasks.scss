@@ -3,13 +3,22 @@
 
 
 .tasks {
-    padding: 1rem;
-margin-bottom: 3rem;
+    padding:0 1rem;
+    margin-bottom: 3rem;
+
     &__container {
-        height: 35rem;
+        height: 22rem;
         overflow-y: auto;
-        padding: 10px
+        scroll-behavior: smooth;
+        scroll-margin-bottom: auto; 
+        scroll-padding-bottom: 1rem; 
     }
+    
+   
+    &__container:focus {
+        outline: none;
+    }
+    
 
     &__event-container {
         background: url("../../assets/capstone-icons/Frame-blue.svg") no-repeat;
@@ -24,13 +33,13 @@ margin-bottom: 3rem;
         border-bottom: 0.4rem dotted silver;
     }
 
-    
+
     &__iscomplete {
         display: flex;
         background-color: $background_color1;
         border: 0.2rem solid blue;
         border-radius: 28px;
-        width: 10rem;
+        width: 9rem;
         margin: 1rem;
     }
 
@@ -38,7 +47,7 @@ margin-bottom: 3rem;
         width: 100%;
         font-size: 1rem;
     }
-    
+
     &__label {
         font-size: 1.5rem;
         padding: 1rem;
@@ -58,16 +67,11 @@ margin-bottom: 3rem;
     }
 
 }
+
 // .tasks__iscomplete.complete {
 //     color: green;
 //   }
-  
+
 //   .tasks__iscomplete.incomplete {
 //     color: red;
 //   }
-.pressed {
-    transform: scale(0.95);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
-  }
-  

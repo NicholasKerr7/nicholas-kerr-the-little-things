@@ -3,11 +3,18 @@ import "./Calender.scss";
 import backIcon from "../../assets/capstone-icons/arrow-back-circle.svg";
 import React, { useEffect, useState, useRef } from "react";
 
-export default function Calendar({ onDateSelect, setSelectedDate }) {
- 
-  const [currentDate, setCurrentDate] = useState("");
+export default function Calendar({
+  onDateSelect,
+  selectedDate,
+  setSelectedDate,
+  setCurrentDate,
+  currentDate,
+  currentMonth,
+  setCurrentMonth,
+  handleTaskFilter,
+  formatDate
+}) {
   const [currentDay, setCurrentDay] = useState("");
-  const [currentMonth, setCurrentMonth] = useState("");
   const dateScrollRef = useRef(null);
 
   useEffect(() => {
@@ -43,14 +50,6 @@ export default function Calendar({ onDateSelect, setSelectedDate }) {
     onDateSelect(date);
   };
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const formattedDate =
-      date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
-    return formattedDate;
-  };
-
- 
 
   const generateDates = () => {
     const dates = [];
@@ -86,7 +85,11 @@ export default function Calendar({ onDateSelect, setSelectedDate }) {
     <div className="task-manager">
       <div className="task-manager__title-container">
         <Link to="/todos">
-        <img className="task-manager__back-icon" src={backIcon} alt="back icon" />
+          <img
+            className="task-manager__back-icon"
+            src={backIcon}
+            alt="back icon"
+          />
         </Link>
         <h2 className="task-manager__title">MY TASKS</h2>
       </div>
@@ -109,17 +112,6 @@ export default function Calendar({ onDateSelect, setSelectedDate }) {
       <div className="current-date">{currentDate}</div>
       {/* <div className="current-day">{currentDay}</div> */}
       <div className="date-scroll-container">
-        {/* <div className="tasks-container">
-          {filteredTasks.map((task, index) => (
-            console.log(filteredTasks);
-            
-            <div key={index} className="task-item">
-              <div>{task.title}</div>
-              <div>{task.date}</div>
-              <div>{task.description}</div>
-            </div>
-          ))}
-        </div> */}
         <div className="scroll-buttons">
           <button
             className="scroll-button scroll-button-left"
