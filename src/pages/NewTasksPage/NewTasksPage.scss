@@ -66,29 +66,30 @@
         }
     }
     
-    &__time-container {
-        @include flexbox(column, space-between, null);
-        margin-bottom: 1rem;
-        width: 40%;
+    // &__time-container {
+    //     @include flexbox(column, space-between, null);
+    //     margin-bottom: 1rem;
+    //     width: 40%;
         
-    }
+    // }
     
-    &__timestamp {
-        height: 3.6rem;
-        padding: 0 1.6rem;
-        border-radius: 2rem;
-        border: 1px solid $primary_color3;
-        background-color: $primary_color2;
+    // &__timestamp {
+    //     height: 3.6rem;
+    //     padding: 0 1.6rem;
+    //     border-radius: 2rem;
+    //     border: 1px solid $primary_color3;
+    //     background-color: $primary_color2;
         
         
-        &:focus {
-            border: 1px solid $divider_color;
-        }
-    }
+    //     &:focus {
+    //         border: 1px solid $divider_color;
+    //     }
+    // }
     
     &__date-container {
         @include flexbox(column, space-between, null);
         margin-bottom: 1rem;
+        width: 40%;
         
     }
     
@@ -100,7 +101,6 @@
         border-radius: 2rem;
         border: 1px solid $primary_color3;
         background-color: $primary_color2;
-        width: 40%;
         
         &:focus {
             border: 1px solid $divider_color;
@@ -109,7 +109,7 @@
     
     &__category-container {
         @include flexbox(column, space-between, null);
-        margin-bottom: 1rem;
+        margin-bottom: 5rem;
         
     }
     
@@ -135,7 +135,7 @@
         border: 1px solid $primary_color3;
         background-color: $primary_color1;
         width: 15rem;
-        margin-bottom: 8rem;
+        margin-bottom: 12rem;
     }
 }
 #appt {

@@ -2,13 +2,17 @@
 @use "../../styles/partials/mixins" as *;
 
 .header {
-padding: 1rem;
+padding: 2rem;
+background-color: $primary_color2;
     &__logo {}
     
     &__title-container {}
 
     &__title {
         font-size: 1.5rem;
+        width: 10rem;
+        color: $primary_color3;
+
     }
 
 }

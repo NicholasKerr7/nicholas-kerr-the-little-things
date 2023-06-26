@@ -51,12 +51,14 @@ export default function NewTasksPage({ getAllTasks }) {
       .post(`${process.env.REACT_APP_API_BASE_URL}/todos/1`, postNewTask)
       .then((response) => {
         getAllTasks();
+        setTimeout(() => {
+          navigate("/todos/1/tasks");
+        }, 1000);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
 
   return (
     <section className="new-task">
@@ -69,7 +71,7 @@ export default function NewTasksPage({ getAllTasks }) {
             Task
           </label>
           <input
-          className="new-task__title-input"
+            className="new-task__title-input"
             name="task"
             type="text"
             placeholder="Going shopping..."
@@ -93,7 +95,7 @@ export default function NewTasksPage({ getAllTasks }) {
               defaultValue="2023-06-28"
               min="2023-01-01"
               max="2090-12-31"
-            onChange={(event) => handleChange(event)}
+              onChange={(event) => handleChange(event)}
               required
             />
           </div>
@@ -112,7 +114,6 @@ export default function NewTasksPage({ getAllTasks }) {
               required
             />
           </div> */}
-        </div>
         <div className="new-task__date-container">
           <label className="new-task__date-title" htmlFor="end">
             End date:
@@ -128,6 +129,7 @@ export default function NewTasksPage({ getAllTasks }) {
             onChange={(event) => handleChange(event)}
             required
           />
+        </div>
         </div>
         <div className="new-task__category-container">
           <label className="new-task__category-title" htmlFor="category">

@@ -15,7 +15,7 @@ export default function NavBar () {
       <Link to="todos/1/tasks" >
         <img className="navbar__todo" src={TodoIcon} alt="" />
       </Link>
-      <Link to="1/new-task" >
+      <Link className="navbar__create-link" to="1/new-task" >
         <img className="navbar__create" src={CreateIcon} alt="" />
       </Link>
       <Link to="" >

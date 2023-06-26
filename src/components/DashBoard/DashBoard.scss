@@ -6,7 +6,9 @@
 
     &__title-container {}
 
-    &__title {}
+    &__title {
+        padding: 1rem
+    }
 
     &__cards {
         @include flexbox(row, space-between, null);
@@ -14,13 +16,16 @@
     }
 
     &__wishlist-icon {
-        margin: 2rem 3rem 0;
+        margin: 1rem 1rem 0;
     }
 
     &__left-card {
         background: url("../../assets/capstone-icons/Rectangle-tall-file.svg") no-repeat;
         background-position: center center;
+        background-size: contain;
         width: 50%;
+        padding: 1rem;
+
     }
 
     &__left-category {
@@ -31,7 +36,11 @@
 
     &__left-text {
         @include flexbox(column, space-between, center);
-        font-size: 1.5rem
+        flex-wrap: wrap;
+        align-items: center;
+        font-size: 1.5rem;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
     }
 
     &__right-cards {
@@ -43,6 +52,7 @@
         background: url("../../assets/capstone-icons/stickyPad.svg") no-repeat;
         height: 13rem;
         position: relative;
+        background-size: contain;
     }
 
     &__check-icon {
@@ -78,6 +88,8 @@
         background: url("../../assets/capstone-icons/stickypad2.svg") no-repeat;
         height: 13rem;
         position: relative;
+        background-size: contain;
     }
 
 }
+
