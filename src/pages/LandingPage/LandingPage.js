@@ -10,6 +10,14 @@ export default function LandingPage({
   isComplete,
   getAllTasks,
   getIsComplete,
+  modalState,
+  setModalState,
+  chosenTask,
+  setChosenTask,
+  handleModal,
+  handleCancel,
+  handleItemDelete,
+  handleComplete
 }) {
   return (
     <>
@@ -20,7 +28,20 @@ export default function LandingPage({
           taskCount={taskCount}
           isComplete={isComplete}
         />
-        <Todo tasks={tasks} isComplete={isComplete} getIsComplete={getIsComplete} getAllTasks={getAllTasks} />
+        <Todo
+          tasks={tasks}
+          isComplete={isComplete}
+          getIsComplete={getIsComplete}
+          getAllTasks={getAllTasks}
+          modalState={modalState}
+          setModalState={setModalState}
+          chosenTask={chosenTask}
+          setChosenTask={setChosenTask}
+          handleModal={handleModal}
+          handleCancel={handleCancel}
+          handleItemDelete={handleItemDelete}
+          handleComplete={handleComplete}
+        />
       </div>
     </>
   );

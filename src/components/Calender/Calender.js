@@ -12,7 +12,7 @@ export default function Calendar({
   currentMonth,
   setCurrentMonth,
   handleTaskFilter,
-  formatDate
+  formatDate,
 }) {
   const [currentDay, setCurrentDay] = useState("");
   const dateScrollRef = useRef(null);
@@ -50,14 +50,17 @@ export default function Calendar({
     onDateSelect(date);
   };
 
-
   const generateDates = () => {
     const dates = [];
     const today = new Date();
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
 
-    for (let i = 0; i < 14; i++) {
-      const date = new Date(today);
-      date.setDate(today.getDate() + i);
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+    for (let i = 0; i < daysInMonth; i++) {
+      const date = new Date(currentYear, currentMonth, i + 1);
+
       const dayOfWeek = date.toLocaleDateString(undefined, {
         weekday: "short",
       });
@@ -82,20 +85,18 @@ export default function Calendar({
   });
 
   return (
-    <div className="task-manager">
-      <div className="task-manager__title-container">
+    <div className="calender-manager">
+      <div className="calender-manager__title-container">
         <Link to="/todos">
           <img
-            className="task-manager__back-icon"
+            className="calender-manager__back-icon"
             src={backIcon}
             alt="back icon"
           />
         </Link>
-        <h2 className="task-manager__title">MY TASKS</h2>
+        <h2 className="calender-manager__title">MY TASKS</h2>
       </div>
-      {/* <h2 className="selected-date">
-        {selectedDate ? `Selected Date: ${selectedDate}` : "No date selected"}
-      </h2> */}
+      
       <div className="month-dropdown">
         <select
           className="month__wrapper"
@@ -110,7 +111,6 @@ export default function Calendar({
         </select>
       </div>
       <div className="current-date">{currentDate}</div>
-      {/* <div className="current-day">{currentDay}</div> */}
       <div className="date-scroll-container">
         <div className="scroll-buttons">
           <button

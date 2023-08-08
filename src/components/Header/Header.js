@@ -1,16 +1,16 @@
 import "./Header.scss";
-// import userIcon from "../../assets/capstone-icons/user-icon.svg";
+import Applogo from "../../assets/capstone-icons/the-little-things.png";
 
 export default function Header() {
   return (
     <header className="header">
-      <div className="header__logo"></div>
-      <div className="header__title-container">
-        <p className="header__title">THE LITTLE THINGS</p>
+      <div className="header__logo-container">
+        <img className="header__logo" src={Applogo} alt="usericon" />
       </div>
-      {/* <div className="header__profile">
-        <img src={userIcon} alt="user icon" />
-      </div> */}
+      <div className="header__title-container">
+        {/* <p className="header__title">THE LITTLE THINGS</p> */}
+      </div>
+      <div className="header__profile"></div>
     </header>
   );
 }

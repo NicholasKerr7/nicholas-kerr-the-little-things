@@ -4,7 +4,7 @@
 .dashboard {
     padding: 1rem;
 
-    &__title-container {}
+    // &__title-container {}
 
     &__title {
         padding: 1rem
@@ -13,10 +13,6 @@
     &__cards {
         @include flexbox(row, space-between, null);
         height: 26rem;
-    }
-
-    &__wishlist-icon {
-        margin: 1rem 1rem 0;
     }
 
     &__left-card {
@@ -30,8 +26,7 @@
 
     &__left-category {
         @include flexbox(column, space-between, center);
-        margin-bottom: 2rem;
-        font-size: 2rem;
+        margin: 3rem 2rem;
     }
 
     &__left-text {
@@ -46,12 +41,12 @@
     &__right-cards {
         @include flexbox(column, space-between, null);
         width: 50%;
+        position: relative;
     }
 
     &__tasks-wrapper {
         background: url("../../assets/capstone-icons/stickyPad.svg") no-repeat;
         height: 13rem;
-        position: relative;
         background-size: contain;
     }
 
@@ -59,7 +54,7 @@
         padding: 1rem 1.5rem;
     }
 
-    &__right-category {
+    &__item-counter {
         @include flexbox(row, space-between, center);
         position: absolute;
         top: 6rem;
@@ -79,7 +74,7 @@
         }
     }
 
-    &__item-counter {
+    &__right-category {
         @include flexbox(row, space-between, center);
         padding: 0 2rem;
     }

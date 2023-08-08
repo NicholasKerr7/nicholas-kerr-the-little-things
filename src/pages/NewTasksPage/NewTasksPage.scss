@@ -11,6 +11,7 @@
     
     &__header-title {
         padding: 2rem;
+        text-align: center;
     }
     
     &__form {
@@ -24,7 +25,7 @@
         
     }
     
-    &__title {}
+    // &__title {}
     
     &__title-input {
         height: 3.6rem;
@@ -39,7 +40,7 @@
         }
     }
     
-    &__error {}
+    // &__error {}
     
     &__datetime-container {
         @include flexbox(row, space-between, null);
@@ -51,7 +52,7 @@
         width: 40%;
     }
     
-    &__start-date-title {}
+    // &__start-date-title {}
     
     &__start-date {
         height: 3.6rem;
@@ -93,7 +94,7 @@
         
     }
     
-    &__date-title {}
+    // &__date-title {}
     
     &__due-date {
         height: 3.6rem;
@@ -113,7 +114,7 @@
         
     }
     
-    &__category-title {}
+    // &__category-title {}
     
     &__category-input {
         height: 3.6rem;

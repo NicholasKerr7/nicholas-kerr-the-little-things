@@ -2,13 +2,10 @@
 
 ## Overview
 
-What is your app? Brief description in a couple of sentences.
-
-This app, aimed at families who live in the same houshold, will enable all family members to share schedules, household activites, responsibilites to create a harmonious home life and allowing for more time spent connecting
+This app, aimed at families who live in the same household, will enable all family members to share schedules, household activities, responsibilities to create a harmonious home life and allowing for more time spent connecting
 
 ### Problem
 
-Why is your app needed? Background information around any pain points or other reasons.
 There are lots of apps on the market that help teams, collaborate, communicate and share tasks - all of which helps organizations run more efficiently. However there aren't many (if any) apps that gives families, this same type of system, so that they can create more harmonious homes.
 Different people within a house have different jobs, schedules, preferences and families who have dependents whether it is children or parents to support, need to integrate their routines also. Historically physical trackers have been used (usually in the kitchen) where everything is written, however this is manual and difficult to collaborate on. This process is in need of digitisation and that is what this app will do. Allow familes to collaborate, communicate and share tasks, so that households can run more efficiently and more time can be spent together, rather than apart completing household activites.
 
@@ -18,13 +15,9 @@ Single or a collaboration of Muliple users to support small/large families,
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
-
 The core functionality of the App is to deligate task/activities amonst a group of individuals to prioritise and optimise daily plans
 
 ### Tech Stack
-
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
 
 Technologies that will be used to create this app:
 -react,
@@ -131,8 +124,6 @@ Does your project include any login or user profile functionality? If so, descri
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
-
 Days Milestones Goal
 Day1 1 Create database and design models
 Day1 2 Build server boilerplate and hook up to database
@@ -148,4 +139,4 @@ Day11 10 DEPLOYMENT
 
 ## Nice-to-haves
 
-Multiple users that can share task and view each other task.
+

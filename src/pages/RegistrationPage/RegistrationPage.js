@@ -53,7 +53,7 @@ export default function RegistrationPage() {
         <Link className="registration__reg-btn-link" to="">
           <p className="registration__reg-btn">Register</p>
         </Link>
-        <Link className="registration__log-btn-link" to="todos/:user_id">
+        <Link className="registration__log-btn-link" to="/todos">
           <p className="registration__log-btn">Login</p>
         </Link>
       </form>

@@ -1,9 +1,8 @@
 import "./DashBoard.scss";
-import textBullet from "../../assets/capstone-icons/Vector-green.svg";
 import checklistIcon from "../../assets/capstone-icons/checklist.svg";
 import checklistIcon2 from "../../assets/capstone-icons/checklist-gold.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DashBoard({ tasks, taskCount, isComplete }) {
   const [isPressed, setIsPressed] = useState(false);
@@ -14,6 +13,7 @@ export default function DashBoard({ tasks, taskCount, isComplete }) {
       setIsPressed(false);
     }, 300);
   };
+
   return (
     <section className="dashboard">
       <div className="dashboard__title-container">
@@ -21,12 +21,7 @@ export default function DashBoard({ tasks, taskCount, isComplete }) {
       </div>
       <div className="dashboard__cards">
         <div className="dashboard__left-card">
-          <img
-            className="dashboard__wishlist-icon"
-            src={textBullet}
-            alt="bulletin-icon"
-          />
-          <p className="dashboard__left-category">WISHLIST</p>
+          <p className="dashboard__left-category">SHARED LIST</p>
           {tasks.slice(0, 4).map((task) => {
             return (
               <p key={task.id} className="dashboard__left-text">
@@ -46,8 +41,8 @@ export default function DashBoard({ tasks, taskCount, isComplete }) {
               src={checklistIcon}
               alt="check-icon"
             />
-            <p className="dashboard__right-category">{taskCount}</p>
-            <p className="dashboard__item-counter">TASKS</p>
+            <p className="dashboard__item-counter">{taskCount}</p>
+            <p className="dashboard__right-category">TASKS</p>
           </Link>
           <div className="dashboard__complete-wrapper">
             <img
@@ -55,8 +50,8 @@ export default function DashBoard({ tasks, taskCount, isComplete }) {
               src={checklistIcon2}
               alt="check icon"
             />
-            <p className="dashboard__right-category--complete">{isComplete}</p>
-            <p className="dashboard__item-counter">COMPLETE</p>
+            <p className="dashboard__item-counter--complete">{isComplete}</p>
+            <p className="dashboard__right-category">COMPLETE</p>
           </div>
         </div>
       </div>

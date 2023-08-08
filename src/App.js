@@ -15,6 +15,8 @@ export default function App() {
   const [tasks, setTasks] = useState(null);
   const [taskCount, setTaskCount] = useState(undefined);
   const [isComplete, setIsComplete] = useState(false);
+  const [modalState, setModalState] = useState(false);
+  const [chosenTask, setChosenTask] = useState();
 
   const getAllTasks = async () => {
     try {
@@ -34,7 +36,7 @@ export default function App() {
         `${process.env.REACT_APP_API_BASE_URL}/todos/1`
       );
       const filteredArray = response.data.filter((todo) => {
-        return todo.complete === 1;
+        return todo.complete == 1;
       });
       setIsComplete(filteredArray.length);
     } catch (error) {
@@ -51,6 +53,61 @@ export default function App() {
     return <div>loading...</div>;
   }
 
+  const handleModal = (task) => {
+    setModalState(true);
+    setChosenTask(task);
+    getAllTasks();
+    getIsComplete();
+  };
+
+  const handleCancel = () => {
+    setModalState(false);
+    getAllTasks();
+    getIsComplete();
+  };
+
+  const handleItemDelete = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.delete(
+        `${process.env.REACT_APP_API_BASE_URL}/todos/${chosenTask.id}`
+      );
+      getAllTasks();
+      setModalState(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleComplete = async (event) => {
+    event.preventDefault();
+    const formattedDate = (dateString) => {
+      const date = new Date(dateString);
+      const formattedDate =
+        date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+      return formattedDate;
+    };
+
+    try {
+      await axios.put(
+        `${process.env.REACT_APP_API_BASE_URL}/todos/${chosenTask.id}`,
+        {
+          complete: 1,
+          user_id: chosenTask.user_id,
+          task: chosenTask.task,
+          category: chosenTask.category,
+          due_at: formattedDate(chosenTask.due_at),
+        }
+      );
+      getIsComplete();
+      getAllTasks();
+      setModalState(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
   return (
     <div className="main">
       <BrowserRouter>
@@ -66,6 +123,14 @@ export default function App() {
                 isComplete={isComplete}
                 getIsComplete={getIsComplete}
                 getAllTasks={getAllTasks}
+                modalState={modalState}
+                setModalState={setModalState}
+                chosenTask={chosenTask}
+                setChosenTask={setChosenTask}
+                handleModal={handleModal}
+                handleCancel={handleCancel}
+                handleItemDelete={handleItemDelete}
+                handleComplete={handleComplete}
               />
             }
           />
@@ -76,6 +141,15 @@ export default function App() {
                 tasks={tasks}
                 isComplete={isComplete}
                 getIsComplete={getIsComplete}
+                modalState={modalState}
+                setModalState={setModalState}
+                chosenTask={chosenTask}
+                setChosenTask={setChosenTask}
+                handleModal={handleModal}
+                handleCancel={handleCancel}
+                handleItemDelete={handleItemDelete}
+                handleComplete={handleComplete}
+                
               />
             }
           />

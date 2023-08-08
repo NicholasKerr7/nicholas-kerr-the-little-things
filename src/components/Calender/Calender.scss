@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 
-.task-manager {
+.calender-manager {
   text-align: center;
   background-color: $primary-color2;
 
@@ -39,7 +39,6 @@
 
 .date-scroll-container {
   position: relative;
-  margin-bottom: 15px;
 }
 
 .date-scroll {
@@ -89,6 +88,12 @@
   color: #ffffff;
   font-size: 18px;
   font-weight: bold;
+
+  &:hover {
+    transition: all .1s ease-in-out;
+    transform: scale(1.1);
+
+  }
 }
 
 .scroll-buttons {
