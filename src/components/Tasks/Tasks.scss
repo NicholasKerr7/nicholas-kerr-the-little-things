@@ -3,75 +3,87 @@
 
 
 .tasks {
-    padding:0 1rem;
-    // margin-bottom: 3rem;
+    font-size: 1.2rem;
 
     &__container {
-        height: 33rem;
+        height: 50vh;
         overflow-y: auto;
         scroll-behavior: smooth;
-        scroll-margin-bottom: auto; 
-        scroll-padding-bottom: 1rem; 
+        scroll-margin-bottom: auto;
+        scroll-padding-bottom: 1rem;
+        padding: 0.5rem;
     }
-    
-   
+
+
     &__container:focus {
         outline: none;
     }
-    
 
     &__event-container {
-        background: url("../../assets/capstone-icons/Frame-blue.svg") no-repeat;
-        background-position: center center;
-        background-size: contain;
+        @include flexbox(column, center, center);
         width: 100%;
-        height: 20rem;
-        padding: 1rem;
+        margin: 4rem auto;
+        border-radius: 5px 25px 25px 25px;
+        filter: drop-shadow(0 0 0.75rem grey);
+        background: white;
+        position: relative;
+        cursor: pointer;
+        // border-bottom: 0.4rem dotted silver;
         margin-bottom: 2rem;
-        align-items: center;
-        text-align: center;
-        border-bottom: 0.4rem dotted silver;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -18px;
+            width: 100%;
+            height: 20px;
+            background: white;
+            border-radius: 25px 0 0 0;
+            // clip-path: path('M 0 0 L 120 0 C 145 2, 135 16, 150 18 L 0 50 z');
+            clip-path: path('M 0 0 L 80 0 C 95 2, 90 16, 100 18 L 0 40 z');
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            width: 50px;
+            height: 5px;
+            top: -18px;
+            background: $primary_color2;
+        }
     }
 
+    // &__event-container {
+    //     background: url("../../assets/capstone-icons/Frame-blue.svg") no-repeat;
+    //     background-position: center center;
+    //     background-size: contain;
+    //     width: 100%;
+    //     height: 20rem;
+    //     padding: 1rem;
+    //     margin-bottom: 2rem;
+    //     align-items: center;
+    //     text-align: center;
+    //     border-bottom: 0.4rem dotted silver;
+    // }
 
-    &__iscomplete {
-        display: flex;
-        background-color: $background_color1;
-        border: 0.2rem solid blue;
-        border-radius: 28px;
-        width: 9rem;
-        margin: 1rem;
-    }
-
-    &__complete {
-        width: 100%;
-        font-size: 1rem;
-    }
 
     &__label {
-        font-size: 1.5rem;
         padding: 1rem;
         margin-bottom: 1rem;
     }
 
-    &__category {
-        font-size: 1.5rem;
-    }
-
-    &__created-at {
-        font-size: 1.5rem;
-    }
-
     &__due-at {
-        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
+
 
 }
 
-// .tasks__iscomplete.complete {
-//     color: green;
-//   }
+.tasks__iscomplete.complete {
+    color: green;
+}
 
-//   .tasks__iscomplete.incomplete {
-//     color: red;
-//   }
+.tasks__iscomplete.incomplete {
+    color: red;
+}

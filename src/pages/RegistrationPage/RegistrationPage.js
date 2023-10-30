@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import "./RegistrationPage.scss";
 import backIcon from "../../assets/capstone-icons/arrow-back-circle.svg";
+import React, {useState} from "react";
+
+
+
+
 
 export default function RegistrationPage() {
   return (

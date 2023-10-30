@@ -4,7 +4,7 @@ import HomeIcon from "../../assets/capstone-icons/home-icon.svg";
 import TodoIcon from "../../assets/capstone-icons/todo-icon.svg";
 import ProfileIcon from "../../assets/capstone-icons/profile-icon.svg";
 import CreateIcon from "../../assets/capstone-icons/create-icon.svg";
-import SharedListIcon from "../../assets/capstone-icons/sharedList.svg";
+import ShareIcon from "../../assets/capstone-icons/share-btn.svg";
 
 export default function NavBar () {
     return (
@@ -24,7 +24,7 @@ export default function NavBar () {
     </div>
     <div className="navbar__container-right">
     <Link to="" >
-        <img className="navbar__stats" src={SharedListIcon} alt="" />
+        <img className="navbar__stats" src={ShareIcon} alt="" />
       </Link>
       <Link to="/" >
         <img className="navbar__profile" src={ProfileIcon} alt="" />

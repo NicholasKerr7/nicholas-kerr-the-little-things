@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./Tasks.scss";
 import crossIconSource from "../../assets/capstone-icons/close-24px.svg";
+import checkBox from "../../assets/capstone-icons/check-box.svg";
 
 export default function Tasks({
   tasks,
@@ -49,7 +50,7 @@ export default function Tasks({
               <div className="tasks__iscomplete">
                 {/* Display "Complete" or "Incomplete" */}
                 <p className="tasks__complete">
-                  {task.complete ? "Complete" : "Incomplete"}
+                  {task.complete ? "" : ""}
                 </p>
               </div>
               <p className="tasks__label">{task.task}</p>

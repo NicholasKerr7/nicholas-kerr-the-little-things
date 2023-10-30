@@ -26,6 +26,7 @@ export default function Todo({
       date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     return formattedDate;
   };
+  
 
   useEffect(() => {
     getIsComplete();
@@ -84,7 +85,7 @@ export default function Todo({
       ) : (
         tasks
           .filter((task) => task.complete === "0")
-          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+          .sort((a, b) => sortedDate(b.created_at) - sortedDate(a.created_at))
           .slice(0, 2)
           .map((task) => (
             <div

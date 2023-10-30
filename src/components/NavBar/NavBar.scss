@@ -3,7 +3,7 @@
 
 
 .navbar {
-    padding: 0 4rem;
+    padding: 0 2rem;
     @include flexbox(row, space-between, center);
     background: url("../../assets/capstone-icons/navbar.svg") no-repeat;
     background-position: center center;
@@ -11,8 +11,10 @@
     width: 100%;
     height: 9rem;
     position: relative;
+    // position: fixed;
     left: 0;
     right: 0;
+    // bottom: 0;
     justify-content: space-between;
     display: flex;
 
@@ -24,7 +26,7 @@
 
     &__container-right
      {
-        width: 35%;
+        width: 32%;
         display: flex;
         justify-content: space-between;
     }
@@ -36,6 +38,7 @@
     // &__create-link {}
 
     &__create {
+        width: 10rem;
         position: absolute;
         top: 10%;
         left: 50%;

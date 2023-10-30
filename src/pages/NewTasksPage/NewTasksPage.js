@@ -92,7 +92,7 @@ export default function NewTasksPage({ getAllTasks }) {
               type="date"
               id="start"
               name="created_at"
-              defaultValue="2023-06-28"
+              // defaultValue="2023-06-28"
               min="2023-01-01"
               max="2090-12-31"
               onChange={(event) => handleChange(event)}
@@ -123,7 +123,7 @@ export default function NewTasksPage({ getAllTasks }) {
             type="date"
             id="end"
             name="due_at"
-            defaultValue="2023-06-28"
+            // defaultValue="2023-06-28"
             min="2023-01-01"
             max="2090-12-31"
             onChange={(event) => handleChange(event)}

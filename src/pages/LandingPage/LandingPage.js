@@ -17,7 +17,10 @@ export default function LandingPage({
   handleModal,
   handleCancel,
   handleItemDelete,
-  handleComplete
+  handleComplete,
+  completedTasks,
+  onDeleteTask,
+  handleDeleteTask,
 }) {
   return (
     <>
@@ -27,6 +30,8 @@ export default function LandingPage({
           tasks={tasks}
           taskCount={taskCount}
           isComplete={isComplete}
+          completedTasks={completedTasks}
+          onDeleteTask={handleDeleteTask}
         />
         <Todo
           tasks={tasks}

@@ -17,6 +17,7 @@ export default function App() {
   const [isComplete, setIsComplete] = useState(false);
   const [modalState, setModalState] = useState(false);
   const [chosenTask, setChosenTask] = useState();
+  const [completedTasks, setCompletedTasks] = useState([]);
 
   const getAllTasks = async () => {
     try {
@@ -107,6 +108,11 @@ export default function App() {
     }
   };
 
+  const handleDeleteTask = (index) => {
+    const updatedTasks = [...completedTasks];
+    updatedTasks.splice(index, 1);
+    setCompletedTasks(updatedTasks);
+  };
 
   return (
     <div className="main">
@@ -131,6 +137,8 @@ export default function App() {
                 handleCancel={handleCancel}
                 handleItemDelete={handleItemDelete}
                 handleComplete={handleComplete}
+                completedTasks={completedTasks}
+                onDeleteTask={handleDeleteTask}
               />
             }
           />
@@ -149,7 +157,6 @@ export default function App() {
                 handleCancel={handleCancel}
                 handleItemDelete={handleItemDelete}
                 handleComplete={handleComplete}
-                
               />
             }
           />
