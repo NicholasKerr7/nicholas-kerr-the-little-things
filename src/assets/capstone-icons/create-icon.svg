@@ -1,20 +1,3 @@
-<svg width="129" height="129" viewBox="0 0 129 129" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_83_215)">
-<circle cx="64.5" cy="60.5" r="43.5" fill="#AFE69C"/>
-<circle cx="64.5" cy="60.5" r="43.6" stroke="#282828" stroke-width="0.2"/>
-</g>
-<line x1="50" y1="59.5" x2="78" y2="59.5" stroke="black" stroke-width="3"/>
-<path d="M64 46L64.5 73.5" stroke="black" stroke-width="3"/>
-<defs>
-<filter id="filter0_d_83_215" x="0.799988" y="0.799988" width="127.4" height="127.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="10"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_83_215"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_83_215" result="shape"/>
-</filter>
-</defs>
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.4625 11.8877H11.8895V16.4606C11.8895 16.7032 11.7932 16.9358 11.6217 17.1073C11.4501 17.2789 11.2175 17.3752 10.975 17.3752C10.7324 17.3752 10.4998 17.2789 10.3283 17.1073C10.1567 16.9358 10.0604 16.7032 10.0604 16.4606V11.8877H5.48746C5.2449 11.8877 5.01227 11.7914 4.84075 11.6198C4.66923 11.4483 4.57288 11.2157 4.57288 10.9731C4.57288 10.7306 4.66923 10.4979 4.84075 10.3264C5.01227 10.1549 5.2449 10.0585 5.48746 10.0585H10.0604V5.48563C10.0604 5.24307 10.1567 5.01044 10.3283 4.83892C10.4998 4.6674 10.7324 4.57104 10.975 4.57104C11.2175 4.57104 11.4501 4.6674 11.6217 4.83892C11.7932 5.01044 11.8895 5.24307 11.8895 5.48563V10.0585H16.4625C16.705 10.0585 16.9377 10.1549 17.1092 10.3264C17.2807 10.4979 17.377 10.7306 17.377 10.9731C17.377 11.2157 17.2807 11.4483 17.1092 11.6198C16.9377 11.7914 16.705 11.8877 16.4625 11.8877Z" fill="black"/>
 </svg>

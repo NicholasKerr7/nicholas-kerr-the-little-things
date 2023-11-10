@@ -1,4 +1,5 @@
 import "./styles/global.scss";
+import "./App.scss";
 import Header from "./components/Header/Header";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import NavBar from "./components/NavBar/NavBar";
@@ -50,9 +51,15 @@ export default function App() {
     getIsComplete();
   }, []);
 
-  if (!tasks) {
-    return <div>loading...</div>;
-  }
+  const LOADING_TEXT = "Loading";
+
+  if (!tasks)
+    return (
+      <div className="loading">
+        <p className="loader"></p>
+        <p className="loading-text">{LOADING_TEXT}</p>
+      </div>
+    );
 
   const handleModal = (task) => {
     setModalState(true);

@@ -47,12 +47,10 @@ export default function Tasks({
                 handleModal(task);
               }}
             >
-              <div className="tasks__iscomplete">
-                {/* Display "Complete" or "Incomplete" */}
-                <p className="tasks__complete">
-                  {task.complete ? "" : ""}
-                </p>
-              </div>
+              {/* <div className="tasks__iscomplete">
+                Display "Complete" or "Incomplete"
+                <p className="tasks__complete">{task.complete ? "" : ""}</p>
+              </div> */}
               <p className="tasks__label">{task.task}</p>
               <p className="tasks__category">Category: {task.category}</p>
               <p className="tasks__create-at">
@@ -81,11 +79,11 @@ export default function Tasks({
             Please confirm that you'd like to complete/delete {chosenTask.task}{" "}
             from the list of tasks. You won't be able to undo this action.
           </p>
-          <button className="modal__comp-btn" onClick={handleComplete}>
-            Complete
-          </button>
           <button className="modal__del-btn" onClick={handleItemDelete}>
             Remove
+          </button>
+          <button className="modal__comp-btn" onClick={handleComplete}>
+            Complete
           </button>
         </div>
       )}

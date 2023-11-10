@@ -5,11 +5,13 @@
 padding: 1rem;
 background-color: $primary_color2;
     &__logo {
-        width: 16rem;
-        height: 10rem;
+        width: 10rem;
+        height: 6rem;
     }
     
-    &__title-container {}
+    &__logo-container {
+        height: 6rem;
+    }
 
     &__title {
         font-size: 1.5rem;

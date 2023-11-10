@@ -26,7 +26,6 @@ export default function Todo({
       date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     return formattedDate;
   };
-  
 
   useEffect(() => {
     getIsComplete();
@@ -124,11 +123,11 @@ export default function Todo({
             Please confirm that you'd like to complete/delete {chosenTask.task}{" "}
             from the list of tasks. You won't be able to undo this action.
           </p>
-          <button className="modal__comp-btn" onClick={handleComplete}>
-            Complete
-          </button>
           <button className="modal__del-btn" onClick={handleItemDelete}>
             Remove
+          </button>
+          <button className="modal__comp-btn" onClick={handleComplete}>
+            Complete
           </button>
         </div>
       )}

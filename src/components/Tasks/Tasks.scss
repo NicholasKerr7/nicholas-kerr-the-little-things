@@ -22,14 +22,13 @@
     &__event-container {
         @include flexbox(column, center, center);
         width: 100%;
-        margin: 4rem auto;
+        margin: 4rem auto 2rem;
         border-radius: 5px 25px 25px 25px;
         filter: drop-shadow(0 0 0.75rem grey);
         background: white;
         position: relative;
         cursor: pointer;
-        // border-bottom: 0.4rem dotted silver;
-        margin-bottom: 2rem;
+        // border-bottom: 2px dotted silver;
 
         &::before {
             content: '';
