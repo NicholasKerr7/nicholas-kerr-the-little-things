@@ -5,7 +5,9 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import NavBar from "./components/NavBar/NavBar";
 import SharedListPage from "./pages/SharedListPage/SharedListPage";
 import NewTasksPage from "./pages/NewTasksPage/NewTasksPage";
+import CompletedTaskPage from "./pages/CompletedTaskPage/CompletedTaskPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import MyTaskPage from "./pages/MyTaskPage/MyTaskPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -19,6 +21,7 @@ export default function App() {
   const [modalState, setModalState] = useState(false);
   const [chosenTask, setChosenTask] = useState();
   const [completedTasks, setCompletedTasks] = useState([]);
+  const [deletedTasks, setDeletedTasks] = useState([])
 
   const getAllTasks = async () => {
     try {
@@ -41,6 +44,7 @@ export default function App() {
         return todo.complete == 1;
       });
       setIsComplete(filteredArray.length);
+      setCompletedTasks(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -119,14 +123,15 @@ export default function App() {
     const updatedTasks = [...completedTasks];
     updatedTasks.splice(index, 1);
     setCompletedTasks(updatedTasks);
+    setDeletedTasks(updatedTasks);
   };
-
   return (
     <div className="main">
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<RegistrationPage />} />
+          <Route path="/" element={<LoginPage />} />
+          {/* <Route path="/" element={<RegistrationPage />} /> */}
           <Route
             path="/todos"
             element={
@@ -144,7 +149,6 @@ export default function App() {
                 handleCancel={handleCancel}
                 handleItemDelete={handleItemDelete}
                 handleComplete={handleComplete}
-                completedTasks={completedTasks}
                 onDeleteTask={handleDeleteTask}
               />
             }
@@ -167,6 +171,24 @@ export default function App() {
               />
             }
           />
+          <Route
+            path="todos/1/completedTasks"
+            element={
+              <CompletedTaskPage
+                completedTasks={completedTasks}
+                DeletedTask={handleDeleteTask}
+                modalState={modalState}
+                setModalState={setModalState}
+                chosenTask={chosenTask}
+                setChosenTask={setChosenTask}
+                handleModal={handleModal}
+                handleCancel={handleCancel}
+                handleItemDelete={handleItemDelete}
+                handleComplete={handleComplete}
+              />
+            }
+          />
+
           <Route
             path="1/new-task"
             element={<NewTasksPage getAllTasks={getAllTasks} />}

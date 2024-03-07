@@ -39,7 +39,7 @@ export default function DashBoard({ tasks, taskCount, isComplete }) {
             <p className="dashboard__right-category">TASKS</p>
           </Link>
           <div className="dashboard__complete-wrapper">
-            <Link className="dashboard__complete-wrappr" to="/todos/1/completedtask">
+            <Link className="dashboard__complete-wrappr" to="/todos/1/completedtasks">
             <p className="dashboard__item-counter--complete">{isComplete}</p>
             <p className="dashboard__right-category">COMPLETE</p>
             </Link>

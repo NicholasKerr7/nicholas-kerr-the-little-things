@@ -83,7 +83,7 @@ export default function NavBar() {
           </Link>
         </li>
         <li className="list">
-          <Link className="link" to="#">
+          <Link className="link" to="1/shared-list">
             <img className="icon" src={ShareIcon} alt="" />
             <span className="text">SHARE</span>
           </Link>

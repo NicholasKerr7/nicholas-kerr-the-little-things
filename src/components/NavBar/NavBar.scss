@@ -63,14 +63,16 @@
 
 .navigation .container {
     display: flex;
-    width: 350px;
+    // width: 35rem;
+    width: 100%;
 }
 
 .navigation .container li {
     position: relative;
     list-style: none;
     z-index: 1;
-    width: 70px;
+    // width: 7rem;
+    width: 20%;
     height: 25px;
 }
 
@@ -85,7 +87,7 @@
 .navigation .container li .link .icon {
     position: relative;
     display: block;
-    line-height: 7.5rem;
+    // line-height: 7.5rem;
     // line-height: 5rem;
     font-size: 1.2rem;
     text-align: center;
@@ -150,23 +152,23 @@
 }
 
 .navigation .container li:nth-child(1).active~.indicator {
-    transform: translateX(calc(70px * 0));
+    transform: translateX(calc(57px * 0));
 }
 
 .navigation .container li:nth-child(2).active~.indicator {
-    transform: translateX(calc(70px * 1));
+    transform: translateX(calc(57px * 1));
 }
 
 .navigation .container li:nth-child(3).active~.indicator {
-    transform: translateX(calc(70px * 2));
+    transform: translateX(calc(57px * 2));
 }
 
 .navigation .container li:nth-child(4).active~.indicator {
-    transform: translateX(calc(70px * 3));
+    transform: translateX(calc(57px * 3));
 }
 
 .navigation .container li:nth-child(5).active~.indicator {
-    transform: translateX(calc(70px * 4));
+    transform: translateX(calc(57px * 4));
 }
 
 

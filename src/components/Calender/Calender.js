@@ -32,7 +32,7 @@ export default function Calendar({
 
   useEffect(() => {
     // Automatically scroll to the selected date
-    if (dateScrollRef.current && selectedDate) {
+    if (dateScrollRef.current?.querySelector && selectedDate) {
       const selectedElement =
         dateScrollRef.current.querySelector(".date-item.active");
       if (selectedElement) {
@@ -43,7 +43,8 @@ export default function Calendar({
         });
       }
     }
-  }, [selectedDate]);
+  }, [dateScrollRef.current, selectedDate]);
+  
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);
@@ -113,14 +114,14 @@ export default function Calendar({
       <div className="current-date">{currentDate}</div>
       <div className="date-scroll-container">
         <div className="scroll-buttons">
-          <button
+          {/* <button
             className="scroll-button scroll-button-left"
             onClick={() =>
               dateScrollRef.current.scrollBy({ left: -200, behavior: "smooth" })
             }
           >
             &lt;
-          </button>
+          </button> */}
         </div>
         <div className="date-scroll" ref={dateScrollRef}>
           {dates.map(({ date, dayOfWeek, dayOfMonth }) => (
@@ -137,14 +138,14 @@ export default function Calendar({
           ))}
         </div>
         <div className="scroll-buttons">
-          <button
+          {/* <button
             className="scroll-button scroll-button-right"
             onClick={() =>
               dateScrollRef.current.scrollBy({ left: 200, behavior: "smooth" })
             }
           >
             &gt;
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

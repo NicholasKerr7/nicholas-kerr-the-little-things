@@ -91,41 +91,41 @@
   }
 }
 
-.scroll-buttons {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%;
-}
+// .scroll-buttons {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   height: 100%;
+//   // width: 100%;
+// }
 
-.scroll-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 100%;
-  font-size: 20px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+// .scroll-button {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 40px;
+//   height: 100%;
+//   font-size: 20px;
+//   border: none;
+//   background-color: transparent;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+// }
 
-.scroll-button:hover {
-  background-color: #f1f1f1;
-}
+// .scroll-button:hover {
+//   background-color: #f1f1f1;
+// }
 
-.scroll-button-left {
-  margin-right: 5px;
-}
+// .scroll-button-left {
+//   margin-right: 5px;
+// }
 
-.scroll-button-right {
-  margin-left: 5px;
-}
+// .scroll-button-right {
+//   margin-left: 5px;
+// }
 
 .month-dropdown {
   display: flex;

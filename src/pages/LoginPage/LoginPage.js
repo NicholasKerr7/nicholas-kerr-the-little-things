@@ -19,21 +19,44 @@ export default function LoginPage() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Validation logic here
-
-    if (/* Your validation condition */) {
-      console.log('success');
-
-      // Handle form submission here
-
-    } else {
-      console.log('form error');
-    }
-  };
-
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  
+  //   // Validation logic here
+  //   const trimmedUsername = inputValues.username.trim();
+  //   const trimmedPassword = inputValues.password.trim();
+  
+  //   // Check if username and password are not empty
+  //   if (trimmedUsername === '' || trimmedPassword === '') {
+  //     console.log('Please enter both username and password');
+  //     return;
+  //   }
+  
+  //   // Check username format (e.g., only alphanumeric characters and underscore)
+  //   const usernameRegex = /^[a-zA-Z0-9_]+$/;
+  //   if (!usernameRegex.test(trimmedUsername)) {
+  //     console.log('Invalid username format');
+  //     return;
+  //   }
+  
+  //   // Check minimum password length
+  //   if (trimmedPassword.length < 8) {
+  //     console.log('Password must be at least 8 characters long');
+  //     return;
+  //   }
+  
+  //   // Simulate a successful login (replace this with your actual authentication logic)
+  //   const isLoginSuccessful = true;
+  
+  //   if (isLoginSuccessful) {
+  //     console.log('Login success');
+  
+  //     // Redirect to a new page or perform other actions for successful login
+  //   } else {
+  //     console.log('Login failed. Please check your credentials.');
+  //   }
+  // };
+  
   return (
     <div className="section">
       <div className="frame">
@@ -59,9 +82,13 @@ export default function LoginPage() {
               <i className="login--icon fas fa-user"></i>
             </div>
             <h3 className="login--title">LOGIN</h3>
-            <form onSubmit={handleSubmit} className="login--form">
+            {/* <form onSubmit={handleSubmit} className="login--form"> */}
+            <form className="login--form">
+
               <div className="input--item">
-                <div className={`input__content ${/* Add error class logic */}`}>
+                {/* <div className={`input__content $Add error class logic`}> */}
+                <div className={`input__content $Add error class logic`}>
+
                   <input
                     type="text"
                     name="username"
@@ -72,7 +99,7 @@ export default function LoginPage() {
                 </div>
               </div>
               <div className="input--item">
-                <div className={`input__content ${/* Add error class logic */}`}>
+                <div className={`input__content $Add error class logic`}>
                   <input
                     type="password"
                     name="password"

@@ -30,7 +30,6 @@ export default function LandingPage({
           tasks={tasks}
           taskCount={taskCount}
           isComplete={isComplete}
-          completedTasks={completedTasks}
           onDeleteTask={handleDeleteTask}
         />
         <Todo
