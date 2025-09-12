@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://YOUR-RENDER-SERVICE.onrender.com/$1"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}

@@ -1,0 +1,50 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(240,246,255,1) 0%, rgba(255,255,255,1) 100%);
+
+  &__card {
+    width: min(420px, 92vw);
+    background: #fff;
+    border-radius: 1.5rem;
+    padding: 2.4rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    margin: 0 0 0.8rem;
+  }
+
+  &__subtitle {
+    color: #6b7280;
+    margin: 0 0 2rem;
+  }
+
+  &__google {
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.8rem;
+    padding: 1.2rem 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    background: #fff;
+    cursor: pointer;
+    transition: transform .04s ease, box-shadow .2s ease;
+
+    &:hover { box-shadow: 0 6px 16px rgba(0,0,0,.06); }
+    &:active { transform: translateY(1px); }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}

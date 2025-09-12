@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: little-things-api
+    env: node
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: node server.js
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: DB_HOST
+        value: <PSCALE_HOST>
+      - key: DB_NAME
+        value: <PSCALE_DATABASE>
+      - key: DB_USER
+        value: <PSCALE_USERNAME>
+      - key: DB_PASSWORD
+        value: <PSCALE_PASSWORD>
+      - key: SESSION_SECRET
+        value: <make-one-up>
+      - key: GOOGLE_CLIENT_ID
+        value: <from-Google-Cloud>
+      - key: GOOGLE_CLIENT_SECRET
+        value: <from-Google-Cloud>
+      - key: GOOGLE_CALLBACK_URL
+        value: /auth/google/callback
+      - key: CLIENT_BASE_URL
+        value: /
+      - key: CORS_ORIGIN
+        value: https://<your-vercel-client>.vercel.app

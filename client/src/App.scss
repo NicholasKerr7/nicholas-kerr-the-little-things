@@ -1,0 +1,12 @@
+@use "./styles/partials/variables" as *;
+
+.app {
+  color: $color-text;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
