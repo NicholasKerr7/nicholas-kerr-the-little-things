@@ -1,0 +1,3 @@
+- Set PlanetScale creds + OAuth envs in Render.
+- Replace YOUR-RENDER-SERVICE in client/vercel.json.
+- (Optional) add GitHub Secrets for deploy workflow.

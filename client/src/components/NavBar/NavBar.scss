@@ -1,0 +1,51 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.navbar {
+    padding: 0 2rem;
+    @include flexbox(row, space-between, center);
+    background: url("../../assets/capstone-icons/navbar.svg") no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width: 100%;
+    height: 9rem;
+    position: relative;
+    // position: fixed;
+    left: 0;
+    right: 0;
+    // bottom: 0;
+    justify-content: space-between;
+    display: flex;
+
+    &__container-left {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__container-right
+     {
+        width: 32%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // &__home {}
+
+    // &__todo {}
+
+    // &__create-link {}
+
+    &__create {
+        width: 10rem;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    // &__profile {}
+
+    // &__stats {}
+}

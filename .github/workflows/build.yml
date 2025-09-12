@@ -1,0 +1,23 @@
+name: CI - Build client & server
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Client - install, lint (non-blocking), and build
+        working-directory: client
+        run: |
+          npm ci
+          npx eslint src || true
+          CI=false npm run build
+
+      - name: Server - install
+        working-directory: server
+        run: |
+          npm ci

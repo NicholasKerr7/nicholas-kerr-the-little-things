@@ -1,0 +1,105 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.dashboard {
+    padding: 0.5rem;
+
+    // &__title-container {}
+
+    &__title {
+        padding: 1rem
+    }
+
+    &__cards {
+        @include flexbox(row, space-between, null);
+        height: auto;
+    }
+
+    &__left-card {
+        @include flexbox(column, center, center);
+        background: url("../../assets/capstone-icons/Rectangle-tall-file.svg") no-repeat;
+        background-position: center center;
+        background-size: contain;
+        width: 50%;
+        padding: 1rem;
+
+    }
+
+    &__left-category {
+        margin: 2rem;
+    }
+
+    &__left-text {
+        @include flexbox(column, center, center);
+        flex-wrap: wrap;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        align-items: center;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    &__left-view-more {
+        @include flexbox(column, center, center);
+        font-size: 1.2rem;
+        font-weight: 600
+    }
+
+    &__right-cards {
+        @include flexbox(column, center, null);
+        width: 50%;
+    }
+
+    &__tasks-wrapper {
+        position: relative;
+        background: url("../../assets/capstone-icons/Frame-pink.svg") no-repeat;
+        // height: 13rem;
+        height: 50%;
+        background-size: contain;
+        background-position: center center;
+    }
+
+
+    &__item-counter {
+        @include flexbox(row, space-between, center);
+        position: absolute;
+        // top: 6rem;
+        // left: 15rem;
+        top: 50%;
+        left: 77%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        color: $checkbox-color1;
+
+        &--complete {
+            @include flexbox(row, space-between, center);
+            position: absolute;
+            // top: 6rem;
+            // left: 15rem;
+            top: 49%;
+            left: 77%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: $checkbox-color2;
+        }
+    }
+
+    &__right-category {
+        @include flexbox(row, space-between, center);
+        // padding: 0 2rem;
+        position: absolute;
+        bottom: 1.5rem;
+        left: 2rem;
+        font-size: 1.5rem;
+    }
+
+    &__complete-wrapper {
+        background: url("../../assets/capstone-icons/Frame-gold.svg") no-repeat;
+        height: 49%;
+        position: relative;
+        background-size: contain;
+        background-position: center center;
+    }
+
+}

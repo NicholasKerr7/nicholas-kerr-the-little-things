@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: little-things-api
+    env: node
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: node server.js
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health

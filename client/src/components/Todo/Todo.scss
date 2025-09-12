@@ -1,0 +1,122 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.todo {
+  padding: 0.5rem;
+
+  // &__title-container {}
+
+  &__title {
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+  &__notification-text {
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  &__container {
+    @include flexbox(column, center, center);
+    background: url("../../assets/capstone-icons/rectangular-folder.svg") no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width: 100%;
+    height: 11rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+
+  }
+
+  &__text-container {
+    @include flexbox(column, space-between, center);
+    font-size: 1.2rem;
+  }
+
+  &__task-date {
+    color: $primary_color4;
+
+    &--urgent {
+      color: $error-color;
+    }
+  }
+
+}
+
+.modal {
+  background-color: $background_color1;
+  padding: 1.6rem;
+  z-index: 20;
+  position: fixed;
+  top: 10rem;
+  bottom: 15rem;
+  left: 5rem;
+  right: 5rem;
+
+  &__cross {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  &__title {
+    padding-top: 4rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    line-height: 3rem;
+
+  }
+
+  &__message {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin-bottom: 2rem;
+
+  }
+
+  &__comp-btn {
+    font-size: 1.1rem;
+    color: $primary_color4;
+    background-color: $supporting_color3;
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    height: 2.8rem;
+    width: 13rem;
+    border: 1px solid $primary_color3;
+    border-radius: 2rem;
+
+  }
+
+  &__del-btn {
+    font-size: 1.1rem;
+    color: $primary_color4;
+    background-color: $supporting_color4;
+    border: 1px solid $primary_color3;
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    height: 2.8rem;
+    width: 13rem;
+    border: none;
+    border-radius: 2rem;
+
+  }
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,158 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.calender-manager {
+  text-align: center;
+  background-color: $primary-color2;
+
+  &__title-container {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+  }
+
+  &__title {
+    padding: 0 2rem;
+    width: 93%;
+    margin-right: 3rem;
+    text-align: center;
+  }
+
+}
+
+.selected-date {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.current-date {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.date-scroll-container {
+  position: relative;
+}
+
+.date-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.1s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.date-item {
+  flex-shrink: 0;
+  padding: 10px;
+  border-radius: 28px;
+  background-color: #afe69c;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.date-item.active {
+  background-color: #0fa958;
+}
+
+.date-item span {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+
+  &:hover {
+    transition: all .1s ease-in-out;
+    transform: scale(1.1);
+
+  }
+}
+
+.scroll-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.scroll-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 100%;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-button:hover {
+  background-color: #f1f1f1;
+}
+
+.scroll-button-left {
+  margin-right: 5px;
+}
+
+.scroll-button-right {
+  margin-left: 5px;
+}
+
+.month-dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.month-dropdown .month__wrapper {
+  align-items: center;
+  background-color: $primary-color1;
+  border: 1px solid $primary-color3;
+  color: $primary-color3;
+  border-radius: 102px;
+  display: flex;
+  gap: 2px;
+  padding: 8px;
+  font-size: 2rem;
+  text-align: center;
+  text-align-last: center;
+}
+
+.month-dropdown .month__title-option {
+  color: #0fa958;
+  font-family: "Inter-ExtraBold", Helvetica;
+  font-size: 2rem;
+  text-align: left;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: normal;
+}
