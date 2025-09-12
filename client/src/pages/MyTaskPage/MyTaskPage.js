@@ -1,7 +1,37 @@
 import "./MyTaskPage.scss";
-import Calender from "../../components/Calender/Calender.js";
+import Calender from "../../components/Calender/Calender";
 import React, { useState } from "react";
 import Tasks from "../../components/Tasks/Tasks";
+
+// Normalize any Date-like value to midnight for safe comparisons
+const normalizeDate = (d) => {
+  const dt = new Date(d);
+  dt.setHours(0, 0, 0, 0);
+  return dt;
+};
+
+// Parse selected dates coming from the calendar (supports "DD/MM/YYYY", ISO, or Date)
+const parseSelectedDate = (sd) => {
+  if (!sd) return null;
+  if (sd instanceof Date) return normalizeDate(sd);
+  if (typeof sd === "string") {
+    const parts = sd.split(/[\/-]/).map(Number);
+    if (parts.length === 3) {
+      // assume DD/MM/YYYY
+      const [day, month, year] = parts;
+      if (!Number.isNaN(day) && !Number.isNaN(month) && !Number.isNaN(year)) {
+        return normalizeDate(new Date(year, month - 1, day));
+      }
+    }
+    const t = new Date(sd);
+    if (!Number.isNaN(t)) return normalizeDate(t);
+  }
+  try {
+    return normalizeDate(sd);
+  } catch {
+    return null;
+  }
+};
 
 export default function MyTaskPage({
   tasks,
@@ -19,36 +49,33 @@ export default function MyTaskPage({
   const [currentMonth, setCurrentMonth] = useState("");
   const [currentDate, setCurrentDate] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
+
   const handleTaskFilter = () => {
-    if (!selectedDate || !currentMonth) {
-      return tasks;
-    }
+    // If nothing is selected, return all tasks
+    const sel = parseSelectedDate(selectedDate);
+    if (!sel) return tasks;
 
-    // Filter tasks by selected date and current month
-    const filteredDateSelect = tasks.filter((task) => {
-      return (
-        selectedDate > formatDate(task.created_at) &&
-        selectedDate < formatDate(task.due_at)
-      );
+    // Keep tasks whose selected date is between created_at and due_at (inclusive)
+    return tasks.filter((task) => {
+      const created = normalizeDate(task.created_at);
+      const due = normalizeDate(task.due_at);
+      return sel >= created && sel <= due;
     });
-
-    return filteredDateSelect;
   };
 
-  const handleDateSelect = (selectedDate) => {
-    // Filter tasks based on the selected date
-      setSelectedDate(selectedDate);
-      const taskDate = new Date(task.due_at).toLocaleDateString();
-      return taskDate === selectedDate;
-    });
+  const handleDateSelect = (date) => {
+    // Just store the user’s selection; filtering happens in handleTaskFilter
+    setSelectedDate(date);
   };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const formattedDate =
-      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-    return formattedDate;
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   };
+
   return (
     <div className="task-page">
       <Calender

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Todo.scss";
 import crossIconSource from "../../assets/capstone-icons/close-24px.svg";
 
@@ -25,6 +24,8 @@ export default function Todo({
     return formattedDate;
   };
   
+  const [remainingTime, setRemainingTime] = useState(null);
+
 
   useEffect(() => { getIsComplete(); }, []); // eslint-disable-next-line react-hooks/exhaustive-deps
 
