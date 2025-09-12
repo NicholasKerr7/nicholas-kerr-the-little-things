@@ -10,11 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Client - install, lint (non-blocking), and build
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: client/package-lock.json
+
+      - name: Client - install and build
         working-directory: client
         run: |
           npm ci
-          npx eslint src || true
           CI=false npm run build
 
       - name: Server - install
